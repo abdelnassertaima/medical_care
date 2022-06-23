@@ -119,9 +119,9 @@ class AuthController extends Controller
         return redirect()->route('auth.login.view', $guard);
     }
 
-    private function getGuardName(): String
-    {
-        return auth('admin')->check() ? 'admin' : 'doctor';
-    }
+    // private function getGuardName(): String
+    // {
+    //     return auth('admin')->check() ? 'admin' : 'doctor';
+    // }
 
 }

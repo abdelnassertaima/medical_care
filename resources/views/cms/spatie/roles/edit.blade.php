@@ -58,7 +58,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performEdit()" class="btn btn-primary mr-2">Submit</button>
+                            <button type="button" onclick="performEdit({{$role->id}})" class="btn btn-primary mr-2">Submit</button>
                             <button type="reset" class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
@@ -74,12 +74,19 @@
 
 @section('scripts')
 <script>
-    function performEdit(){
-        let data = {
+    function performEdit(id){
+    axios.put('/cms/admin/roles/'+id, {
             guard_name: document.getElementById('guard_name').value,
             name: document.getElementById('name').value,
-        }
-        update('/cms/admin/roles/{{$role->id}}', data, '/cms/admin/roles');
-    }
+    })
+    .then(function (response) {
+        console.log(response);
+        toastr.success(response.data.message);
+    })
+    .catch(function (error) {
+        console.log(error);
+        toastr.error(error.response.data.message);
+    });
+}
 </script>
 @endsection

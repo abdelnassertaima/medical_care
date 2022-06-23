@@ -106,6 +106,23 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         //
+        $validator = validator($request->all(),[
+            'guard_name'=>'required|string|in:admin,dnoctor',
+            'name'=>'required|string|min:3|max:45',
+            
+        ]);
+        if(!$validator->fails()){
+            $role->guard_name = $request->input('guard_name');
+            $role->name = $request->input('name');
+            $isUpdated = $role->save();
+            return response()->json([
+                'message' => $isUpdated ? 'Updated successfully' : 'Updated failed'
+            ], $isUpdated ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+        }else{
+            return response()->json([
+                'message' => $validator->getMessageBag()->first()
+            ], Response::HTTP_BAD_REQUEST);
+        }
     }
 
     /**

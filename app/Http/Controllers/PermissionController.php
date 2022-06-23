@@ -94,6 +94,23 @@ class PermissionController extends Controller
     public function update(Request $request, Permission $permission)
     {
         //
+        $validator = validator($request->all(),[
+            'guard_name'=>'required|string|in:admin,doctor',
+            'name'=>'required|string|min:3|max:45',
+            
+        ]);
+        if(!$validator->fails()){
+            $permission->guard_name = $request->input('guard_name');
+            $permission->name = $request->input('name');
+            $isUpdated = $permission->save();
+            return response()->json([
+                'message' => $isUpdated ? 'Updated successfully' : 'Updated failed'
+            ], $isUpdated ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+        }else{
+            return response()->json([
+                'message' => $validator->getMessageBag()->first()
+            ], Response::HTTP_BAD_REQUEST);
+        }
     }
 
     /**

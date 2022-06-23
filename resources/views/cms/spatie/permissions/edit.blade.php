@@ -35,9 +35,7 @@
                                     title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     <option value="admin" @if($permission->guard_name == 'admin') selected @endif>Admin
                                     </option>
-                                    <option value="store" @if($permission->guard_name == 'store') selected @endif>Store
-                                    </option>
-                                    <option value="api" @if($permission->guard_name == 'api') selected @endif>User
+                                    <option value="doctor" @if($permission->guard_name == 'doctor') selected @endif>Doctor
                                     </option>
                                 </select>
                             </div>
@@ -59,7 +57,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performEdit()" class="btn btn-primary mr-2">Submit</button>
+                            <button type="button" onclick="performEdit({{$permission->id}})" class="btn btn-primary mr-2">Submit</button>
                             <button type="reset" class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
@@ -75,12 +73,19 @@
 
 @section('scripts')
 <script>
-    function performEdit(){
-        let data = {
-            guard_name: document.getElementById('guard_name').value,
-            name: document.getElementById('name').value,
-        }
-        update('/cms/admin/permissions/{{$permission->id}}', data, '/cms/admin/permissions');
-    }
+    function performEdit(id){
+    axios.put('/cms/admin/permissions/'+id, {
+        guard_name: document.getElementById('guard_name').value,
+        name: document.getElementById('name').value,
+    })
+    .then(function (response) {
+        console.log(response);
+        toastr.success(response.data.message);
+    })
+    .catch(function (error) {
+        console.log(error);
+        toastr.error(error.response.data.message);
+    });
+}
 </script>
 @endsection

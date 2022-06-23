@@ -77,6 +77,7 @@
             }).then(function (response) {
                 // handle success
                 console.log(response);
+                document.getElementById('create-form').reset();
                 toastr.success(response.data.message);
             }).catch(function (error) {
                 // handle error

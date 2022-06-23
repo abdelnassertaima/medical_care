@@ -80,6 +80,7 @@ class ClinicController extends Controller
     public function edit(Clinic $clinic)
     {
         //
+        return response()->view('cms.clinics.edit',['clinic'=>$clinic]);
     }
 
     /**
@@ -92,6 +93,23 @@ class ClinicController extends Controller
     public function update(Request $request, Clinic $clinic)
     {
         //
+        $validator = validator($request->all(),[
+            'name'=>'required|string|min:3|max:45',
+            'description'=>'nullable|string',
+        ]);
+
+        if(!$validator->fails()){
+            $clinic->name = $request->input('name');
+            $clinic->description = $request->input('description');
+            $isUpdated = $clinic->save();
+            return response()->json([
+                'message' => $isUpdated ? 'Updated successfully' : 'Updated failed'
+            ], $isUpdated ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+        }else{
+            return response()->json([
+                'message' => $validator->getMessageBag()->first()
+            ], Response::HTTP_BAD_REQUEST);
+        }
     }
 
     /**

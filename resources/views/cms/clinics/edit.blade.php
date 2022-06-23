@@ -16,7 +16,7 @@
         <!--begin::Card-->
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
-                <h3 class="card-title">Edit Permission</h3>
+                <h3 class="card-title">Edit Clinic</h3>
                 {{-- <div class="card-toolbar">
                         <div class="example-tools justify-content-center">
                             <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
@@ -27,29 +27,18 @@
             <!--begin::Form-->
             <form>
                 <div class="card-body">
-                    <div class="form-group row">
-                        <label class="col-3 col-form-label">Auth Type:</label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <div class="dropdown bootstrap-select form-control dropup">
-                                <select class="form-control selectpicker" data-size="7" id="guard_name"
-                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
-                                    <option value="admin" @if($permission->guard_name == 'admin') selected @endif>Admin
-                                    </option>
-                                    <option value="store" @if($permission->guard_name == 'store') selected @endif>Store
-                                    </option>
-                                    <option value="api" @if($permission->guard_name == 'api') selected @endif>User
-                                    </option>
-                                </select>
-                            </div>
-                            <span class="form-text text-muted">Please select auth type</span>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">Clinic name:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="name" value="{{$clinic->name}}"/>
+                            <span class="form-text text-muted">Please enter your full Clinic name</span>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">Name</label>
+                        <label class="col-3 col-form-label">description:<span class="text-danger">*</span></label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="name" value="{{$permission->name}}"
-                                placeholder="Enter permission name" />
-                            <span class="form-text text-muted">Please enter permission name</span>
+                            <textarea class="form-control" type="text" id="description" rows="3">{{$clinic->description}}</textarea>
+                            <span class="form-text text-muted">Please enter your full description</span>
                         </div>
                     </div>
                 </div>
@@ -59,7 +48,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performEdit()" class="btn btn-primary mr-2">Submit</button>
+                            <button type="button" onclick="Updat({{$clinic->id}})" class="btn btn-primary mr-2">Submit</button>
                             <button type="reset" class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
@@ -75,12 +64,19 @@
 
 @section('scripts')
 <script>
-    function performEdit(){
-        let data = {
-            guard_name: document.getElementById('guard_name').value,
-            name: document.getElementById('name').value,
-        }
-        update('/cms/admin/permissions/{{$permission->id}}', data, '/cms/admin/permissions');
-    }
+function Updat(id){
+    axios.put('/cms/admin/clinics/'+id, {
+        name: document.getElementById('name').value,
+        description: document.getElementById('description').value,
+    })
+    .then(function (response) {
+        console.log(response);
+        toastr.success(response.data.message);
+    })
+    .catch(function (error) {
+        console.log(error);
+        toastr.error(error.response.data.message);
+    });
+}
 </script>
 @endsection

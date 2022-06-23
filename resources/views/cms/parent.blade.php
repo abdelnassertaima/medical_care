@@ -168,7 +168,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</li>
 							
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
+								<a href="{{route('admins.index')}}" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +200,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('admins.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -210,7 +210,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('admins.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -223,7 +223,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</li>
 							
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
+								<a href="{{route('doctors.index')}}" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg"
@@ -242,7 +242,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</svg>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-text">Stores</span>
+									<span class="menu-text">Doctors</span>
 									<i class="menu-arrow"></i>
 								</a>
 								<div class="menu-submenu">
@@ -250,12 +250,12 @@ License: You must have a valid license purchased only from themeforest(the above
 									<ul class="menu-subnav">
 										<li class="menu-item menu-item-parent" aria-haspopup="true">
 											<span class="menu-link">
-												<span class="menu-text">Stores</span>
+												<span class="menu-text">Doctors</span>
 											</span>
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('doctors.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -264,7 +264,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('doctors.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -326,7 +326,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 							
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
+								<a href="{{route('roles.index')}}" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg"
@@ -358,7 +358,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('roles.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -367,7 +367,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('roles.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -380,7 +380,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</li>
 						
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
+								<a href="{{route('permissions.index')}}" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg"
@@ -412,7 +412,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('permissions.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -421,7 +421,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('permissions.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -549,7 +549,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
+								<a href="{{route('clinics.index')}}" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Box3.svg--><svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -565,7 +565,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											</g>
 										</svg>
 										<!--end::Svg Icon--></span>
-									<span class="menu-text">Categories</span>
+									<span class="menu-text">Clinics</span>
 									<i class="menu-arrow"></i>
 								</a>
 								<div class="menu-submenu">
@@ -573,12 +573,12 @@ License: You must have a valid license purchased only from themeforest(the above
 									<ul class="menu-subnav">
 										<li class="menu-item menu-item-parent" aria-haspopup="true">
 											<span class="menu-link">
-												<span class="menu-text">Categories</span>
+												<span class="menu-text">Clinics</span>
 											</span>
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('clinics.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -587,7 +587,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</li>
 										
 										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
+											<a href="{{route('clinics.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
