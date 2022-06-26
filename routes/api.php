@@ -14,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::prefix('auth')->group(function () {
+    Route::post('login', [ApiAuthController::class, 'login']);// 
+    Route::post('user-login', [ApiAuthController::class, 'userLogin']);
+    Route::post('register', [ApiAuthController::class, 'register']);
+    Route::post('forget-password', [ApiAuthController::class, 'forgetPassword']);
+    Route::post('reset-password', [ApiAuthController::class, 'resetPassword']);
+
+    // Route::apiResource('cities', CityController::class);
+});
+
+Route::get('cities', [CityController::class, 'index']);
+
+Route::middleware('auth:user-api')->group(function () {
+    Route::get('categories', [CategoryController::class, 'index']);
+});
+
+Route::prefix('auth')->middleware('auth:user-api')->group(function () {
+    Route::get('logout', [ApiAuthController::class, 'logout']);
 });

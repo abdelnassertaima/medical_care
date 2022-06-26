@@ -170,6 +170,7 @@
 
 function performStore() {
         let formData = new FormData();
+        formData.append('role_id',document.getElementById('role_id').value);
         formData.append('name',document.getElementById('name').value);
         formData.append('email',document.getElementById('email').value);
         formData.append('Bachelors_degree',document.getElementById('Bachelors_degree').value);
@@ -190,27 +191,6 @@ function performStore() {
             toastr.error(error.response.data.message);
         });
     }
-
-
-// function performStore(){
-//     axios.post('/cms/admin/admins', {
-//         role_id: document.getElementById('role_id').value,
-//         name: document.getElementById('name').value,
-//         phone_num: document.getElementById('phone_num').value,
-//         email: document.getElementById('email').value,
-//         address: document.getElementById('address').value,
-//         identification_num: document.getElementById('identification_num').value,
-//     })
-//     .then(function (response) {
-//         console.log(response);
-//         document.getElementById('create-form').reset();
-//         toastr.success(response.data.message);
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//         toastr.error(error.response.data.message);
-//     });
-// }
 </script>
     
 @endsection

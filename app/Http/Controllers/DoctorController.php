@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Clinic;
 use App\Models\Doctor;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -49,21 +51,36 @@ class DoctorController extends Controller
         $validator = validator($request->all(),[
             'role_id' => 'required|integer|exists:roles,id',
             'name'=>'required|string|min:3|max:45',
-            'phone_num'=>'required|string|min:3|max:45',
             'email'=>'required|string|email|unique:doctors,email',
-            'address'=>'required|string|min:3|max:100',
-            'identification_num'=>'required|string|min:3|max:45',
+            'Bachelors_degree'=>'required|string',
+            'specialty'=>'required|string',
+            'clinic_id' => 'required|integer',
+            'practice_certificate' => 'nullable|image|mimes:jpg,bmp,png|max:2048',
+            'Certificate_of_good_conduct' => 'nullable|image|mimes:jpg,bmp,png|max:2048',
+            'password'=>'required|string|min:8|max:45',
         ]);
 
         if(!$validator->fails()){
             $role= Role::findById($request->input('role_id'),'doctor');
             $doctor = new Doctor();
             $doctor->name = $request->input('name');
-            $doctor->phone_num = $request->input('phone_num');
             $doctor->email = $request->input('email');
-            $doctor->address = $request->input('address');
-            $doctor->identification_num = $request->input('identification_num');
-            $doctor->password = Hash::make(12345);
+            $doctor->Bachelors_degree = $request->input('Bachelors_degree');
+            $doctor->specialty = $request->input('specialty');
+            $doctor->clinic_id = $request->input('clinic_id');
+            if ($request->hasFile('practice_certificate')) {
+                $image = $request->file('practice_certificate');
+                $imageName = Carbon::now()->format('Y_m_d_h_i') . '_' . $doctor->name . '.' . $image->getClientOriginalExtension();
+                $request->file('practice_certificate')->storeAs('/doctors', $imageName, ['disk' => 'public']);
+                $doctor->practice_certificate = 'doctors/' . $imageName;
+            }
+            if ($request->hasFile('Certificate_of_good_conduct')) {
+                $image2 = $request->file('Certificate_of_good_conduct');
+                $imageName = Carbon::now()->format('Y_m_d_h_i') . '_' . $doctor->name . '.' . $image2->getClientOriginalExtension();
+                $request->file('Certificate_of_good_conduct')->storeAs('/doctors', $imageName, ['disk' => 'public']);
+                $doctor->Certificate_of_good_conduct = 'doctors/' . $imageName;
+            }
+            $doctor->password = Hash::make($request->input('password'));
 
             $isCreated = $doctor->save();
             if($isCreated) {
@@ -124,5 +141,12 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor)
     {
         //
+        $imageName = $doctor->image;
+        $deleted = $doctor->delete();
+        if ($deleted) Storage::disk('public')->delete($imageName);
+        return response()->json([
+            'title' => $deleted ? 'Deleted successfully' : "Delete failed",
+            'icon' => $deleted ? 'success' : "error",
+        ], $deleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
     }
 }

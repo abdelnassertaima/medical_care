@@ -35,7 +35,9 @@
                                     title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     <option value="admin" @if($role->guard_name == 'admin') selected @endif>Admin
                                     </option>
-                                    <option value="store" @if($role->guard_name == 'store') selected @endif>Store
+                                    <option value="doctor" @if($role->guard_name == 'doctor') selected @endif>Doctor
+                                    </option>
+                                    <option value="patient" @if($role->guard_name == 'patient') selected @endif>Patient
                                     </option>
                                     
                                 </select>

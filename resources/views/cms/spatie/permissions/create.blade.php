@@ -35,6 +35,7 @@
                                     title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     <option value="admin">admin</option>
                                     <option value="doctor">Doctor</option>
+                                    <option value="patient">Patient</option>
                                 </select>
                             </div>
                             <span class="form-text text-muted">Please select auth type</span>

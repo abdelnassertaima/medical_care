@@ -42,7 +42,7 @@ class PermissionController extends Controller
     {
         //
         $validator = validator($request->all(),[
-            'guard_name'=>'required|string|in:admin,doctor',
+            'guard_name'=>'required|string|in:admin,doctor,patient',
             'name'=>'required|string|min:3|max:45',
         ]);
 
@@ -95,7 +95,7 @@ class PermissionController extends Controller
     {
         //
         $validator = validator($request->all(),[
-            'guard_name'=>'required|string|in:admin,doctor',
+            'guard_name'=>'required|string|in:admin,doctor,patient',
             'name'=>'required|string|min:3|max:45',
             
         ]);
