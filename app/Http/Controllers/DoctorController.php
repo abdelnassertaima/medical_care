@@ -118,7 +118,9 @@ class DoctorController extends Controller
     public function edit(Doctor $doctor)
     {
         //
-        return response()->view('cms.doctors.update',['doctor'=>$doctor]);
+        $roles = Role::where('guard_name','=','admin')->get();
+        $doctorRole = $doctor->roles()->first() ;
+        return response()->view('cms.doctors.update',['doctor'=>$doctor,'roles'=>$roles, 'doctorRole'=>$doctorRole]);
     }
 
     /**
