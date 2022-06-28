@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Doctor;
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class BookingController extends Controller
@@ -18,7 +19,8 @@ class BookingController extends Controller
     public function index()
     {
         //
-        $data = Booking::all();
+        // dd(Auth()->id());
+        $data = Booking::where('doctor_id','=', Auth()->id())->get();
         return response()->view('cms.bookings.index',['bookings'=>$data]);
     }
 
