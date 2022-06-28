@@ -1,10 +1,10 @@
 @extends('cms.parent');
 
-
-@section('page-name','nas');
-@section('main-page','nasser');
-@section('sub-page','naa');
-@section('page-name-small','Update');
+@section('title','Update Doctor')
+@section('page-name','Update');
+@section('main-page','Doctor');
+@section('sub-page','Update');
+@section('page-name-small','Doctor');
 
 @section('styles')
     
@@ -18,7 +18,7 @@
         <!--begin::Card-->
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
-                <h3 class="card-title">Update New Admin</h3>
+                <h3 class="card-title">Update Doctor</h3>
                 {{-- <div class="card-toolbar">
                         <div class="example-tools justify-content-center">
                             <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
@@ -38,8 +38,8 @@
                                 <select class="form-control selectpicker" data-size="7" id="role_id"
                                     title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     @foreach ($roles as $role)
-                                    <option value="{{$role->id}}" @if ($adminRole->id == $role->id) selected 
-                                    @endif>{{$role->name}}</option>
+                                    <option value="{{$role->id}}" @if ($doctorRole->id == $role->id) selected 
+                                        @endif>{{$role->name}}>{{$role->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -52,49 +52,79 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">Full Name:<span class="text-danger">*</span></label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="name" value="{{$admin->name}}" placeholder="Enter full name" />
+                            <input type="text" class="form-control" id="name" value="{{$doctor->name}}"/>
                             <span class="form-text text-muted">Please enter your full name</span>
                         </div>
                     </div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">Mobile:<span class="text-danger">*</span></label>
-                        <div class="col-9">
-                            <input type="tel" class="form-control" id="phone_num" value="{{$admin->phone_num}}" placeholder="Enter mobile" />
-                            <span class="form-text text-muted">Please enter your mobile number</span>
-                        </div>
-                    </div>
+                   
+                    
                     <div class="form-group row">
                         <label class="col-3 col-form-label">Email address:<span class="text-danger">*</span></label>
                         <div class="col-9">
-                            <input type="email" class="form-control" id="email" value="{{$admin->email}}" placeholder="Enter email" />
+                            <input type="email" class="form-control" id="email" value="{{$doctor->email}}"/>
                             <span class="form-text text-muted">We'll never share your email with anyone else</span>
                         </div>
                     </div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">Full Name:<span class="text-danger">*</span></label>
+
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">Bachelors degree:<span class="text-danger">*</span></label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="address" value="{{$admin->address}}" placeholder="Enter full name" />
-                            <span class="form-text text-muted">Please enter your full name</span>
+                            <div class="dropdown bootstrap-select form-control dropup">
+                                <select class="form-control selectpicker" data-size="7" id="Bachelors_degree"  value="{{$doctor->Bachelors_degree}}"
+                                    title="-- --" tabindex="null" data-live-search="true">
+                                    <option value="bakaluryus">Bakaluryus</option>
+                                    <option value="Master's">Master's</option>
+                                    <option value="dukturah">Dukturah</option>
+                                </select>
+                            </div>
+                            <span class="form-text text-muted">Please enter your Bachelors degree</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">specialty:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <div class="dropdown bootstrap-select form-control dropup">
+                                <select class="form-control selectpicker" data-size="7" id="specialty"  value="{{$doctor->specialty}}"
+                                    title="-- --" tabindex="null" data-live-search="true">
+                                    <option value="bones">bones</option>
+                                    <option value="batina">batina</option>
+                                    <option value="surgery">surgery</option>
+                                </select>
+                            </div>
+                            <span class="form-text text-muted">Please enter your specialty</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">clinic name:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <select class="form-control selectpicker" data-size="7" id="clinic_id" 
+                            title="Choose one of the following..." tabindex="null" data-live-search="true">
+                           @foreach($clinics as $clinic)
+                            <option value="{{$clinic->id}}">{{$clinic->name}}</option>
+                            @endforeach
+                        
+                        </select>
+                            <span class="form-text text-muted">Please enter your clinic name</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">Practice Certificate:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <input type="file" class="form-control-file" id="practice_certificate">
+                            <span class="form-text text-muted">Please enter your practice certificate</span>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">Full Name:<span class="text-danger">*</span></label>
+                        <label class="col-3 col-form-label">Certificate of good conduct:<span class="text-danger">*</span></label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="identification_num" value="{{$admin->identification_num}}" placeholder="Enter full name" />
-                            <span class="form-text text-muted">Please enter your full name</span>
+                            <input type="file" class="form-control-file" id="Certificate_of_good_conduct">
+                            <span class="form-text text-muted">Please enter your Certificate of good conduct</span>
                         </div>
                     </div>
-                    {{-- <div class="form-group row">
-                        <label class="col-3 col-form-label">Active Account</label>
-                        <div class="col-3">
-                            <span class="switch switch-outline switch-icon switch-success">
-                                <label>
-                                    <input type="checkbox" checked="checked" id="active">
-                                    <span></span>
-                                </label>
-                            </span>
-                        </div>
-                    </div> --}}
+                    
                 </div>
                 <div class="card-footer">
                     <div class="row">
@@ -102,7 +132,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="Updat({{$admin->id}})" class="btn btn-primary mr-2">Submit</button>
+                            <button type="button" onclick="performStore()" class="btn btn-primary mr-2">Submit</button>
                             <button type="reset" class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
@@ -120,24 +150,30 @@
 @section('scripts')
 
 <script>
-function Updat(id){
-    axios.put('/cms/admin/admins/'+id, {
-        role_id: document.getElementById('role_id').value,
-        name: document.getElementById('name').value,
-        phone_num: document.getElementById('phone_num').value,
-        email: document.getElementById('email').value,
-        address: document.getElementById('address').value,
-        identification_num: document.getElementById('identification_num').value,
-    })
-    .then(function (response) {
-        console.log(response);
-        toastr.success(response.data.message);
-    })
-    .catch(function (error) {
-        console.log(error);
-        toastr.error(error.response.data.message);
-    });
-}
+
+function performStore() {
+        let formData = new FormData();
+        formData.append('role_id',document.getElementById('role_id').value);
+        formData.append('name',document.getElementById('name').value);
+        formData.append('email',document.getElementById('email').value);
+        formData.append('Bachelors_degree',document.getElementById('Bachelors_degree').value);
+        formData.append('specialty',document.getElementById('specialty').value);
+        formData.append('clinic_id',document.getElementById('clinic_id').value);
+        formData.append('practice_certificate', document.getElementById('practice_certificate').files[0])
+        formData.append('Certificate_of_good_conduct', document.getElementById('Certificate_of_good_conduct').files[0])
+        formData.append('password',document.getElementById('password').value);
+
+        axios.post('/cms/admin/doctors', formData).then(function (response) {
+            // handle success
+            console.log(response);
+            document.getElementById('create-form').reset();
+            toastr.success(response.data.message);
+        }).catch(function (error) {
+            // handle error
+            console.log(error);
+            toastr.error(error.response.data.message);
+        });
+    }
 </script>
     
 @endsection
