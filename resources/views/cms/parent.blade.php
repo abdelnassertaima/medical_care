@@ -161,512 +161,446 @@ License: You must have a valid license purchased only from themeforest(the above
 
 							
 							
-
+							@canany(['Create-Admin','Read-Admins','Create-Doctor','Read-Doctors','Create-Patient','Read-Patients'])
+							
 							<li class="menu-section">
 								<h4 class="menu-text">Human Resources</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
-							
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="{{route('admins.index')}}" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z"
-													fill="#000000" fill-rule="nonzero"
-													transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
-												<path
-													d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z"
-													fill="#000000" opacity="0.3" />
-											</g>
-										</svg>
-										<!--end::Svg Icon-->
-									</span>
-									<span class="menu-text">Admins</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Admins</span>
+								@canany(['Create-Admin','Read-Admins'])
+									<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+										<a href="{{route('admins.index')}}" class="menu-link menu-toggle">
+											<span class="svg-icon menu-icon">
+												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
+												<svg xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+													viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<rect x="0" y="0" width="24" height="24" />
+														<path
+															d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z"
+															fill="#000000" fill-rule="nonzero"
+															transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
+														<path
+															d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z"
+															fill="#000000" opacity="0.3" />
+													</g>
+												</svg>
+												<!--end::Svg Icon-->
 											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('admins.create')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Create</span>
-											</a>
-										</li>
-										
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('admins.index')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-							
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="{{route('doctors.index')}}" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z"
-													fill="#000000" fill-rule="nonzero"
-													transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
-												<path
-													d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z"
-													fill="#000000" opacity="0.3" />
-											</g>
-										</svg>
-										<!--end::Svg Icon-->
-									</span>
-									<span class="menu-text">Doctors</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Doctors</span>
+											<span class="menu-text">Admins</span>
+											<i class="menu-arrow"></i>
+										</a>
+										<div class="menu-submenu">
+											<i class="menu-arrow"></i>
+											<ul class="menu-subnav">
+												<li class="menu-item menu-item-parent" aria-haspopup="true">
+													<span class="menu-link">
+														<span class="menu-text">Admins</span>
+													</span>
+												</li>
+
+												@can('Create-Admin')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{route('admins.create')}}" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Create</span>
+														</a>
+													</li>
+												@endcan
+													
+												@can('Read-Admins')
+												<li class="menu-item" aria-haspopup="true">
+													<a href="{{route('admins.index')}}" class="menu-link">
+														<i class="menu-bullet menu-bullet-dot">
+															<span></span>
+														</i>
+														<span class="menu-text">Index</span>
+													</a>
+												</li>
+												@endcan
+
+											</ul>
+										</div>
+									</li>
+								@endcanany
+								
+								@canany(['Create-Doctor','Read-Doctors'])
+									<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+										<a href="{{route('doctors.index')}}" class="menu-link menu-toggle">
+											<span class="svg-icon menu-icon">
+												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
+												<svg xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+													viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<rect x="0" y="0" width="24" height="24" />
+														<path
+															d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z"
+															fill="#000000" fill-rule="nonzero"
+															transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
+														<path
+															d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z"
+															fill="#000000" opacity="0.3" />
+													</g>
+												</svg>
+												<!--end::Svg Icon-->
 											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('doctors.create')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Create</span>
-											</a>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('doctors.index')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
+											<span class="menu-text">Doctors</span>
+											<i class="menu-arrow"></i>
+										</a>
+										<div class="menu-submenu">
+											<i class="menu-arrow"></i>
+											<ul class="menu-subnav">
+												<li class="menu-item menu-item-parent" aria-haspopup="true">
+													<span class="menu-link">
+														<span class="menu-text">Doctors</span>
+													</span>
+												</li>
+												
+												@can('Create-Doctor')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{route('doctors.create')}}" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Create</span>
+														</a>
+													</li>
+												@endcan
+												
+												@can('Read-Doctors')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{route('doctors.index')}}" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Index</span>
+														</a>
+													</li>
+												@endcan
+												
+											</ul>
+										</div>
+									</li>
+								@endcanany
+								
+								@canany(['Create-Patient','Read-Patients'])
+									<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+										<a href="javascript:;" class="menu-link menu-toggle">
+											<span class="svg-icon menu-icon">
+												<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Group.svg--><svg
+													xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+													viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<polygon points="0 0 24 0 24 24 0 24" />
+														<path
+															d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
+															fill="#000000" fill-rule="nonzero" opacity="0.3" />
+														<path
+															d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
+															fill="#000000" fill-rule="nonzero" />
+													</g>
+												</svg>
+												<!--end::Svg Icon--></span>
+											<span class="menu-text">Patient</span>
+											<i class="menu-arrow"></i>
+										</a>
+										<div class="menu-submenu">
+											<i class="menu-arrow"></i>
+											<ul class="menu-subnav">
+												<li class="menu-item menu-item-parent" aria-haspopup="true">
+													<span class="menu-link">
+														<span class="menu-text">Patient</span>
+													</span>
+												</li>
+
+												@can('Create-Patient')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{route('doctors.create')}}" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Create</span>
+														</a>
+													</li>
+												@endcan
+
+												@can('Read-Patients')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="#" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Index</span>
+														</a>
+													</li>
+												@endcan
+												
+											</ul>
+										</div>
+									</li>
+								@endcanany
 							
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Group.svg--><svg
-											xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<polygon points="0 0 24 0 24 24 0 24" />
-												<path
-													d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
-													fill="#000000" fill-rule="nonzero" opacity="0.3" />
-												<path
-													d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z"
-													fill="#000000" fill-rule="nonzero" />
-											</g>
-										</svg>
-										<!--end::Svg Icon--></span>
-									<span class="menu-text">Users</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Users</span>
+							@endcanany
+									
+							@canany(['Create-Role','Read-Roles','Create-Permission','Read-Permissions'])
+							
+							
+								<li class="menu-section">
+									<h4 class="menu-text">Roles & Permissions</h4>
+									<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+								</li>
+
+								@canany(['Create-Role','Read-Roles'])
+									<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+										<a href="{{route('roles.index')}}" class="menu-link menu-toggle">
+											<span class="svg-icon menu-icon">
+												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
+												<svg xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+													viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<rect x="0" y="0" width="24" height="24" />
+														<path
+															d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z"
+															fill="#000000" fill-rule="nonzero"
+															transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
+														<path
+															d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z"
+															fill="#000000" opacity="0.3" />
+													</g>
+												</svg>
+												<!--end::Svg Icon-->
 											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-				
-							<li class="menu-section">
-								<h4 class="menu-text">Roles & Permissions</h4>
-								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
-							</li>
+											<span class="menu-text">Roles</span>
+											<i class="menu-arrow"></i>
+										</a>
+										<div class="menu-submenu">
+											<i class="menu-arrow"></i>
+											<ul class="menu-subnav">
+												<li class="menu-item menu-item-parent" aria-haspopup="true">
+													<span class="menu-link">
+														<span class="menu-text">Roles</span>
+													</span>
+												</li>
+												
+												@can('Create-Role')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{route('roles.create')}}" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Create</span>
+														</a>
+													</li>
+												@endcan
+												
+												@can('Read-Roles')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{route('roles.index')}}" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Index</span>
+														</a>
+													</li>
+												@endcan
+
+											</ul>
+										</div>
+									</li>
+								@endcanany
+								
+									
+								@canany(['Create-Permission','Read-Permissions'])
+									<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+										<a href="{{route('permissions.index')}}" class="menu-link menu-toggle">
+											<span class="svg-icon menu-icon">
+												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
+												<svg xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+													viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<rect x="0" y="0" width="24" height="24" />
+														<path
+															d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z"
+															fill="#000000" fill-rule="nonzero"
+															transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
+														<path
+															d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z"
+															fill="#000000" opacity="0.3" />
+													</g>
+												</svg>
+												<!--end::Svg Icon-->
+											</span>
+											<span class="menu-text">Permissions</span>
+											<i class="menu-arrow"></i>
+										</a>
+										<div class="menu-submenu">
+											<i class="menu-arrow"></i>
+											<ul class="menu-subnav">
+												<li class="menu-item menu-item-parent" aria-haspopup="true">
+													<span class="menu-link">
+														<span class="menu-text">Permissions</span>
+													</span>
+												</li>
+												@can('Create-Permission')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{route('permissions.create')}}" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Create</span>
+														</a>
+													</li>
+												@endcan	
+												@can('Read-Permissions')
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{route('permissions.index')}}" class="menu-link">
+															<i class="menu-bullet menu-bullet-dot">
+																<span></span>
+															</i>
+															<span class="menu-text">Index</span>
+														</a>
+													</li>
+												@endcan
+											</ul>
+										</div>
+									</li>
+								@endcanany
+
+							@endcanany
 
 							
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="{{route('roles.index')}}" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z"
-													fill="#000000" fill-rule="nonzero"
-													transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
-												<path
-													d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z"
-													fill="#000000" opacity="0.3" />
-											</g>
-										</svg>
-										<!--end::Svg Icon-->
-									</span>
-									<span class="menu-text">Roles</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Roles</span>
-											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('roles.create')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Create</span>
-											</a>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('roles.index')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-						
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="{{route('permissions.index')}}" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z"
-													fill="#000000" fill-rule="nonzero"
-													transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
-												<path
-													d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z"
-													fill="#000000" opacity="0.3" />
-											</g>
-										</svg>
-										<!--end::Svg Icon-->
-									</span>
-									<span class="menu-text">Permissions</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Permissions</span>
-											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('permissions.create')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Create</span>
-											</a>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('permissions.index')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-							
+							@canany(['Create-Clinic','Read-Clinics','Create-Booking','Read-Bookings'])
+
+							@endcanany
 							<li class="menu-section">
 								<h4 class="menu-text">System Management</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="{{route('clinics.index')}}" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Box3.svg--><svg
-											xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M20.4061385,6.73606154 C20.7672665,6.89656288 21,7.25468437 21,7.64987309 L21,16.4115967 C21,16.7747638 20.8031081,17.1093844 20.4856429,17.2857539 L12.4856429,21.7301984 C12.1836204,21.8979887 11.8163796,21.8979887 11.5143571,21.7301984 L3.51435707,17.2857539 C3.19689188,17.1093844 3,16.7747638 3,16.4115967 L3,7.64987309 C3,7.25468437 3.23273352,6.89656288 3.59386153,6.73606154 L11.5938615,3.18050598 C11.8524269,3.06558805 12.1475731,3.06558805 12.4061385,3.18050598 L20.4061385,6.73606154 Z"
-													fill="#000000" opacity="0.3" />
-												<polygon fill="#000000"
-													points="14.9671522 4.22441676 7.5999999 8.31727912 7.5999999 12.9056825 9.5999999 13.9056825 9.5999999 9.49408582 17.25507 5.24126912" />
-											</g>
-										</svg>
-										<!--end::Svg Icon--></span>
-									<span class="menu-text">Clinics</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Clinics</span>
-											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('clinics.create')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Create</span>
-											</a>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('clinics.index')}}" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-							
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Box2.svg--><svg
-											xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z"
-													fill="#000000" />
-												<path
-													d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z"
-													fill="#000000" opacity="0.3" />
-											</g>
-										</svg>
-										<!--end::Svg Icon-->
-									</span>
-									<span class="menu-text">Reservation</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Reservation</span>
-											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Create</span>
-											</a>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-							
-							{{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Barcode.svg--><svg
-											xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M13,5 L15,5 L15,20 L13,20 L13,5 Z M5,5 L5,20 L3,20 C2.44771525,20 2,19.5522847 2,19 L2,6 C2,5.44771525 2.44771525,5 3,5 L5,5 Z M16,5 L18,5 L18,20 L16,20 L16,5 Z M20,5 L21,5 C21.5522847,5 22,5.44771525 22,6 L22,19 C22,19.5522847 21.5522847,20 21,20 L20,20 L20,5 Z"
-													fill="#000000" />
-												<polygon fill="#000000" opacity="0.3" points="9 5 9 20 7 20 7 5" />
-											</g>
-										</svg>
-										<!--end::Svg Icon--></span>
-									<span class="menu-text">Products</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Products</span>
-											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Create</span>
-											</a>
-										</li>
-									
-								
-										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-							
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-								<a href="javascript:;" class="menu-link menu-toggle">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Gift.svg--><svg
-											xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M4,6 L20,6 C20.5522847,6 21,6.44771525 21,7 L21,8 C21,8.55228475 20.5522847,9 20,9 L4,9 C3.44771525,9 3,8.55228475 3,8 L3,7 C3,6.44771525 3.44771525,6 4,6 Z M5,11 L10,11 C10.5522847,11 11,11.4477153 11,12 L11,19 C11,19.5522847 10.5522847,20 10,20 L5,20 C4.44771525,20 4,19.5522847 4,19 L4,12 C4,11.4477153 4.44771525,11 5,11 Z M14,11 L19,11 C19.5522847,11 20,11.4477153 20,12 L20,19 C20,19.5522847 19.5522847,20 19,20 L14,20 C13.4477153,20 13,19.5522847 13,19 L13,12 C13,11.4477153 13.4477153,11 14,11 Z"
-													fill="#000000" />
-												<path
-													d="M14.4452998,2.16794971 C14.9048285,1.86159725 15.5256978,1.98577112 15.8320503,2.4452998 C16.1384028,2.90482849 16.0142289,3.52569784 15.5547002,3.83205029 L12,6.20185043 L8.4452998,3.83205029 C7.98577112,3.52569784 7.86159725,2.90482849 8.16794971,2.4452998 C8.47430216,1.98577112 9.09517151,1.86159725 9.5547002,2.16794971 L12,3.79814957 L14.4452998,2.16794971 Z"
-													fill="#000000" fill-rule="nonzero" opacity="0.3" />
-											</g>
-										</svg>
-										<!--end::Svg Icon--></span>
-									<span class="menu-text">Products Offers</span>
-									<i class="menu-arrow"></i>
-								</a>
-								<div class="menu-submenu">
-									<i class="menu-arrow"></i>
-									<ul class="menu-subnav">
-										<li class="menu-item menu-item-parent" aria-haspopup="true">
-											<span class="menu-link">
-												<span class="menu-text">Products Offers</span>
-											</span>
-										</li>
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Create</span>
-											</a>
-										</li>
-										
-										
-										<li class="menu-item" aria-haspopup="true">
-											<a href="#" class="menu-link">
-												<i class="menu-bullet menu-bullet-dot">
-													<span></span>
-												</i>
-												<span class="menu-text">Index</span>
-											</a>
-										</li>
-										
-									</ul>
-								</div>
-							</li>
-							
-							<li class="menu-item" aria-haspopup="true">
-								<a href="#" class="menu-link">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Cart2.svg--><svg
-											xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-											viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<path
-													d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z"
-													fill="#000000" fill-rule="nonzero" opacity="0.3" />
-												<path
-													d="M3.28077641,9 L20.7192236,9 C21.2715083,9 21.7192236,9.44771525 21.7192236,10 C21.7192236,10.0817618 21.7091962,10.163215 21.6893661,10.2425356 L19.5680983,18.7276069 C19.234223,20.0631079 18.0342737,21 16.6576708,21 L7.34232922,21 C5.96572629,21 4.76577697,20.0631079 4.43190172,18.7276069 L2.31063391,10.2425356 C2.17668518,9.70674072 2.50244587,9.16380623 3.03824078,9.0298575 C3.11756139,9.01002735 3.1990146,9 3.28077641,9 Z M12,12 C11.4477153,12 11,12.4477153 11,13 L11,17 C11,17.5522847 11.4477153,18 12,18 C12.5522847,18 13,17.5522847 13,17 L13,13 C13,12.4477153 12.5522847,12 12,12 Z M6.96472382,12.1362967 C6.43125772,12.2792385 6.11467523,12.8275755 6.25761704,13.3610416 L7.29289322,17.2247449 C7.43583503,17.758211 7.98417199,18.0747935 8.51763809,17.9318517 C9.05110419,17.7889098 9.36768668,17.2405729 9.22474487,16.7071068 L8.18946869,12.8434035 C8.04652688,12.3099374 7.49818992,11.9933549 6.96472382,12.1362967 Z M17.0352762,12.1362967 C16.5018101,11.9933549 15.9534731,12.3099374 15.8105313,12.8434035 L14.7752551,16.7071068 C14.6323133,17.2405729 14.9488958,17.7889098 15.4823619,17.9318517 C16.015828,18.0747935 16.564165,17.758211 16.7071068,17.2247449 L17.742383,13.3610416 C17.8853248,12.8275755 17.5687423,12.2792385 17.0352762,12.1362967 Z"
-													fill="#000000" />
-											</g>
-										</svg>
-										<!--end::Svg Icon--></span>
-									<span class="menu-text">Orders</span>
-								</a>
-							</li> --}}
 
+							@canany(['Create-Clinic','Read-Clinics'])
+								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+									<a href="{{route('clinics.index')}}" class="menu-link menu-toggle">
+										<span class="svg-icon menu-icon">
+											<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Box3.svg--><svg
+												xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+												viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24" />
+													<path
+														d="M20.4061385,6.73606154 C20.7672665,6.89656288 21,7.25468437 21,7.64987309 L21,16.4115967 C21,16.7747638 20.8031081,17.1093844 20.4856429,17.2857539 L12.4856429,21.7301984 C12.1836204,21.8979887 11.8163796,21.8979887 11.5143571,21.7301984 L3.51435707,17.2857539 C3.19689188,17.1093844 3,16.7747638 3,16.4115967 L3,7.64987309 C3,7.25468437 3.23273352,6.89656288 3.59386153,6.73606154 L11.5938615,3.18050598 C11.8524269,3.06558805 12.1475731,3.06558805 12.4061385,3.18050598 L20.4061385,6.73606154 Z"
+														fill="#000000" opacity="0.3" />
+													<polygon fill="#000000"
+														points="14.9671522 4.22441676 7.5999999 8.31727912 7.5999999 12.9056825 9.5999999 13.9056825 9.5999999 9.49408582 17.25507 5.24126912" />
+												</g>
+											</svg>
+											<!--end::Svg Icon--></span>
+										<span class="menu-text">Clinics</span>
+										<i class="menu-arrow"></i>
+									</a>
+									<div class="menu-submenu">
+										<i class="menu-arrow"></i>
+										<ul class="menu-subnav">
+											<li class="menu-item menu-item-parent" aria-haspopup="true">
+												<span class="menu-link">
+													<span class="menu-text">Clinics</span>
+												</span>
+											</li>
+
+											@can('Create-Clinic')
+												<li class="menu-item" aria-haspopup="true">
+													<a href="{{route('clinics.create')}}" class="menu-link">
+														<i class="menu-bullet menu-bullet-dot">
+															<span></span>
+														</i>
+														<span class="menu-text">Create</span>
+													</a>
+												</li>
+											@endcan
+											
+											@can('Read-Clinics')
+												<li class="menu-item" aria-haspopup="true">
+													<a href="{{route('clinics.index')}}" class="menu-link">
+														<i class="menu-bullet menu-bullet-dot">
+															<span></span>
+														</i>
+														<span class="menu-text">Index</span>
+													</a>
+												</li>
+											@endcan
+
+										</ul>
+									</div>
+								</li>
+							@endcanany
+							
+							@canany(['Create-Booking','Read-Bookings'])
+								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+									<a href="javascript:;" class="menu-link menu-toggle">
+										<span class="svg-icon menu-icon">
+											<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Box2.svg--><svg
+												xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+												viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24" />
+													<path
+														d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z"
+														fill="#000000" />
+													<path
+														d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z"
+														fill="#000000" opacity="0.3" />
+												</g>
+											</svg>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-text">Bookings</span>
+										<i class="menu-arrow"></i>
+									</a>
+									<div class="menu-submenu">
+										<i class="menu-arrow"></i>
+										<ul class="menu-subnav">
+											<li class="menu-item menu-item-parent" aria-haspopup="true">
+												<span class="menu-link">
+													<span class="menu-text">Bookings</span>
+												</span>
+											</li>
+											
+											@can('Create-Booking')
+											<li class="menu-item" aria-haspopup="true">
+												<a href="#" class="menu-link">
+													<i class="menu-bullet menu-bullet-dot">
+														<span></span>
+													</i>
+													<span class="menu-text">Create</span>
+												</a>
+											</li>
+											
+											@endcan
+
+											@can('Read-Bookings')
+												<li class="menu-item" aria-haspopup="true">
+													<a href="#" class="menu-link">
+														<i class="menu-bullet menu-bullet-dot">
+															<span></span>
+														</i>
+														<span class="menu-text">Index</span>
+													</a>
+												</li>
+											@endcan
+
+										</ul>
+									</div>
+								</li>
+							@endcanany
+							
 							
 							<li class="menu-section">
 								<h4 class="menu-text">System Management</h4>
@@ -699,7 +633,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
 							<li class="menu-item" aria-haspopup="true">
-								<a href="#" class="menu-link">
+								<a href="{{route('auth.edit-profile')}}" class="menu-link">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Design\Edit.svg--><svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -719,8 +653,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<span class="menu-text">Edit Profile</span>
 								</a>
 							</li>
-							{{-- <li class="menu-item" aria-haspopup="true">
-								<a href="{{route('cms.change-password')}}" class="menu-link">
+							<li class="menu-item" aria-haspopup="true">
+								<a href="{{route('auth.edit-password')}}" class="menu-link">
 							<span class="svg-icon menu-icon">
 								<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -739,7 +673,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</span>
 							<span class="menu-text">Change Password</span>
 							</a>
-							</li> --}}
+							</li>
 							<li class="menu-item" aria-haspopup="true">
 								<a href="{{route('auth.logout')}}" class="menu-link">
 									<span class="svg-icon menu-icon">

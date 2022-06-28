@@ -85,7 +85,7 @@ class AuthController extends Controller
     public function updateProfile(Request $request)
     {
         $guard = $this->getGuardName();
-        $table = $guard == 'admin' ? 'admins' : 'doctors';
+        $table = $guard == 'admin' ? 'admin' : 'doctor';
         $validator = Validator($request->all(), [
             'name' => 'required|string|min:3|max:45',
             'email' => "required|string|email|unique:$table,email," . auth($guard)->id()
@@ -119,9 +119,9 @@ class AuthController extends Controller
         return redirect()->route('auth.login.view', $guard);
     }
 
-    // private function getGuardName(): String
-    // {
-    //     return auth('admin')->check() ? 'admin' : 'doctor';
-    // }
+    private function getGuardName(): String
+    {
+        return auth('admin')->check() ? 'admin' : 'doctor';
+    }
 
 }

@@ -17,12 +17,12 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">Admins</span>
-            <span class="text-muted mt-3 font-weight-bold font-size-sm">Manage system admins</span>
+            <span class="card-label font-weight-bolder text-dark">Doctors</span>
+            <span class="text-muted mt-3 font-weight-bold font-size-sm">Manage system doctors</span>
         </h3>
         <div class="card-toolbar">
             @can('Create-Admin')
-            <a href="{{route('admins.create')}}" class="btn btn-info font-weight-bolder font-size-sm">New Admin</a>
+            <a href="{{route('doctors.create')}}" class="btn btn-info font-weight-bolder font-size-sm">New Doctor</a>
             @endcan
         </div>
     </div>
@@ -34,37 +34,43 @@
             <table class="table table-head-custom table-vertical-center " id="kt_advance_table_widget_2">
                 <thead>
                     <tr class="text-uppercase">
-                        <th class="pl-0" style="min-width: 100px">id</th>
                         <th style="min-width: 120px">name</th>
-                        <th style="min-width: 150px">phone_num</th>
                         <th style="min-width: 150px">email</th>
-                        <th style="min-width: 150px">address</th>
-                        <th style="min-width: 130px">identification_num</th>
+                        <th style="min-width: 150px">Bachelors_degree</th>
+                        <th style="min-width: 150px">specialty</th>
+                        <th style="min-width: 150px">clinic_id</th>
+                        <th style="min-width: 150px">practice_certificate</th>
+                        <th style="min-width: 130px">Certificate_of_good_conduct</th>
                         <th class="pr-0 text-right" style="min-width: 160px">action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($admins as $admin)
+                    @foreach ($doctors as $doctor)
                     <tr>
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$admin->id}}</a>
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$doctor->name}}</a>
                         </td>
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$admin->name}}</a>
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$doctor->email}}</a>
                         </td>
                         <td>
-                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$admin->phone_num}}</span>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$doctor->Bachelors_degree}}</span>
                         </td>
                         <td>
-                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$admin->email}}</span>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$doctor->specialty}}</span>
                         </td>
                         <td>
-                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$admin->address}}</span>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$doctor->clinic_id}}</span>
                         </td>
                         <td>
-                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$admin->identification_num}}</span>
+                            <img class="img-circle img-bordered-sm" width="65" height="65"
+                                            src="{{url(Storage::url($doctor->practice_certificate))}}" alt="User Image">
+                        </td>
+                        <td>
+                            <img class="img-circle img-bordered-sm" width="65" height="65"
+                                            src="{{url(Storage::url($doctor->Certificate_of_good_conduct))}}" alt="User Image">
                         </td>
                         {{-- <td>
                             <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$admin->roles->name}}</span>
@@ -92,7 +98,7 @@
                                 </span>
                             </a>
                             {{-- @can('Update-Admin') --}}
-                            <a href="{{route('admins.edit',$admin->id)}}"
+                            <a href="{{route('doctors.edit',$doctor->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -114,7 +120,7 @@
                             </a>
                             {{-- @endcan --}}
                             {{-- @can('Delete-Admin') --}}
-                            <a href="#" onclick="performDestroy('{{$admin->id}}',this)"
+                            <a href="#" onclick="performDestroy('{{$doctor->id}}',this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -153,21 +159,7 @@
 
 
 <script>
-    // function performDestroy(id, ref){
-    //     axios.delete('/cms/admin/admins/'+id)
-    //         .then(function (response) {
-    //             // handle success
-    //             console.log(response);
-    //             ref.closest('tr').remove();
-    //     toastr.success(response.data.message);
-    //         })
-    //         .catch(function (error) {
-    //             // handle error
-    //             console.log(error);
-    //     toastr.error(error.response.data.message);
-    //         })
-    //  }
-
+    
     function performDestroy(id, ref){
         Swal.fire({
             title: 'Are you sure?',
@@ -186,7 +178,7 @@
 
      function destroy(id, ref) {
          //JS - Axios
-        axios.delete('/cms/admin/admins/'+id)
+        axios.delete('/cms/admin/doctors/'+id)
             .then(function (response) {
                 // handle success
                 console.log(response);

@@ -61,7 +61,7 @@ class AdminController extends Controller
             $admin->email = $request->input('email');
             $admin->address = $request->input('address');
             $admin->identification_num = $request->input('identification_num');
-            $admin->password = Hash::make(12345);
+            $admin->password = Hash::make($request->input('identification_num'));
 
             $isCreated = $admin->save();
             if($isCreated) {
@@ -100,8 +100,7 @@ class AdminController extends Controller
     {
         //
         $roles = Role::where('guard_name','=','admin')->get();
-        // $adminRole = $admin->roles()->first();
-        $adminRole = $admin->roles()->first();
+        $adminRole = $admin->roles()->first() ;
         return response()->view('cms.admins.update',['admin'=>$admin, 'roles'=>$roles, 'adminRole'=>$adminRole]);
     }
 

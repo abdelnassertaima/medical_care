@@ -118,6 +118,7 @@ class DoctorController extends Controller
     public function edit(Doctor $doctor)
     {
         //
+        return response()->view('cms.doctors.update',['doctor'=>$doctor]);
     }
 
     /**
@@ -130,8 +131,49 @@ class DoctorController extends Controller
     public function update(Request $request, Doctor $doctor)
     {
         //
-    }
+        $validator = validator($request->all(),[
+            'role_id' => 'required|integer|exists:roles,id',
+            'name'=>'required|string|min:3|max:45',
+            'email'=>'required|string|email|unique:doctors,email,'.$doctor->id,
+            'Bachelors_degree'=>'required|string',
+            'specialty'=>'required|string',
+            'clinic_id' => 'required|integer',
+            'practice_certificate' => 'nullable|image|mimes:jpg,bmp,png|max:2048',
+            'Certificate_of_good_conduct' => 'nullable|image|mimes:jpg,bmp,png|max:2048',
+            'password'=>'required|string|min:8|max:45',
+        ]);
 
+        if(!$validator->fails()){
+            $role= Role::findById($request->input('role_id'),'doctor');
+            $doctor->name = $request->input('name');
+            $doctor->email = $request->input('email');
+            $doctor->Bachelors_degree = $request->input('Bachelors_degree');
+            $doctor->specialty = $request->input('specialty');
+            $doctor->clinic_id = $request->input('clinic_id');
+            if ($request->hasFile('practice_certificate')) {
+                $image = $request->file('practice_certificate');
+                $imageName = Carbon::now()->format('Y_m_d_h_i') . '_' . $doctor->name . '.' . $image->getClientOriginalExtension();
+                $request->file('practice_certificate')->storeAs('/doctors', $imageName, ['disk' => 'public']);
+                $doctor->practice_certificate = 'doctors/' . $imageName;
+            }
+            if ($request->hasFile('Certificate_of_good_conduct')) {
+                $image2 = $request->file('Certificate_of_good_conduct');
+                $imageName = Carbon::now()->format('Y_m_d_h_i') . '_' . $doctor->name . '.' . $image2->getClientOriginalExtension();
+                $request->file('Certificate_of_good_conduct')->storeAs('/doctors', $imageName, ['disk' => 'public']);
+                $doctor->Certificate_of_good_conduct = 'doctors/' . $imageName;
+            }
+
+            $isUpdated = $doctor->save();
+            if($isUpdated) $doctor->syncRoles($role);
+            return response()->json([
+                'message' => $isUpdated ? 'Updated successfully' : 'Updated failed'
+            ], $isUpdated ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST);
+        } else {
+            return response()->json([
+                'message' => $validator->getMessageBag()->first()
+            ], Response::HTTP_BAD_REQUEST);
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -141,9 +183,11 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor)
     {
         //
-        $imageName = $doctor->image;
+        $imageName = $doctor->practice_certificate; // الملف الاول 
+        $imageName1 = $doctor->Certificate_of_good_conduct; //  الملف او الصورة الثانى 
         $deleted = $doctor->delete();
-        if ($deleted) Storage::disk('public')->delete($imageName);
+        if ($deleted) Storage::disk('public')->delete($imageName); // حذف الملف الاول 
+        if ($deleted) Storage::disk('public')->delete($imageName1); // حذف الملف االثانى
         return response()->json([
             'title' => $deleted ? 'Deleted successfully' : "Delete failed",
             'icon' => $deleted ? 'success' : "error",

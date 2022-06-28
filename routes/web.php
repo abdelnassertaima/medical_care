@@ -50,6 +50,16 @@ route::prefix('cms/admin')->middleware('auth:admin,doctor,patient')->group(funct
     route::resource('patients',PatientController::class);
     route::resource('bookings',BookingController::class);
 
+    /*************** edit and update password ***************/
+    Route::get('edit-password', [AuthController::class, 'editPassword'])->name('auth.edit-password');
+    Route::put('update-password', [AuthController::class, 'updatePassword']);
+
+    /*************** edit and update profile ***************/
+    Route::get('edit-profile', [AuthController::class, 'editProfile'])->name('auth.edit-profile');
+    Route::put('update-profile', [AuthController::class, 'updateProfile']);
+
+
+
     /*************** logout ***************/
     Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
