@@ -84,6 +84,7 @@ class AuthController extends Controller
 
     public function updateProfile(Request $request)
     {
+
         $guard = $this->getGuardName();
         $table = $guard == 'admin' ? 'admin' : 'doctor';
         $validator = Validator($request->all(), [
@@ -93,8 +94,10 @@ class AuthController extends Controller
 
         if (!$validator->fails()) {
             $user = auth($guard)->user();
+            // dd($user);
             $user->name = $request->input('name');
             $user->email = $request->input('email');
+            // dd($request->all());
             $isSaved = $user->save();
             return response()->json([
                 'message' => $isSaved ? 'Profile updated successfully' : 'Profile update failed',

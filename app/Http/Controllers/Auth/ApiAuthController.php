@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Helpers\Messages;
 use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use App\Models\User;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
@@ -90,15 +91,17 @@ class ApiAuthController extends Controller
         $validator = Validator($request->all(), [
             'name' => 'required|string|min:3|max:45',
             'email' => 'required|email|unique:users,email',
-            'mobile' => 'required|numeric|unique:users,mobile|digits:8',
+            // 'mobile' => 'required|numeric|unique:users,mobile|digits:8',
             'password' => 'required|string|min:3',
         ]);
 
         if (!$validator->fails()) {
-            $user = new User();
+            $user = new Doctor();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
-            $user->mobile = $request->input('mobile');
+            $user->Bachelors_degree = $request->input('Bachelors_degree');
+            $user->specialty = $request->input('specialty');
+            $user->clinic_id = $request->input('clinic_id');
             $user->password = Hash::make($request->input('password'));
             $isSaved = $user->save();
             return response()->json([

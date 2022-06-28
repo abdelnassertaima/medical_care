@@ -120,7 +120,8 @@ class DoctorController extends Controller
         //
         $roles = Role::where('guard_name','=','admin')->get();
         $doctorRole = $doctor->roles()->first() ;
-        return response()->view('cms.doctors.update',['doctor'=>$doctor,'roles'=>$roles, 'doctorRole'=>$doctorRole]);
+        $clinic=Clinic::all();
+        return response()->view('cms.doctors.update',['doctor'=>$doctor,'roles'=>$roles, 'doctorRole'=>$doctorRole,'clinics'=>$clinic]);
     }
 
     /**
@@ -142,23 +143,28 @@ class DoctorController extends Controller
             'clinic_id' => 'required|integer',
             'practice_certificate' => 'nullable|image|mimes:jpg,bmp,png|max:2048',
             'Certificate_of_good_conduct' => 'nullable|image|mimes:jpg,bmp,png|max:2048',
-            'password'=>'required|string|min:8|max:45',
+            
         ]);
 
         if(!$validator->fails()){
             $role= Role::findById($request->input('role_id'),'doctor');
+            
             $doctor->name = $request->input('name');
             $doctor->email = $request->input('email');
             $doctor->Bachelors_degree = $request->input('Bachelors_degree');
             $doctor->specialty = $request->input('specialty');
             $doctor->clinic_id = $request->input('clinic_id');
             if ($request->hasFile('practice_certificate')) {
+                Storage::disk('public')->delete($doctor->practice_certificate);
+
                 $image = $request->file('practice_certificate');
                 $imageName = Carbon::now()->format('Y_m_d_h_i') . '_' . $doctor->name . '.' . $image->getClientOriginalExtension();
                 $request->file('practice_certificate')->storeAs('/doctors', $imageName, ['disk' => 'public']);
                 $doctor->practice_certificate = 'doctors/' . $imageName;
             }
             if ($request->hasFile('Certificate_of_good_conduct')) {
+                Storage::disk('public')->delete($doctor->Certificate_of_good_conduct);
+
                 $image2 = $request->file('Certificate_of_good_conduct');
                 $imageName = Carbon::now()->format('Y_m_d_h_i') . '_' . $doctor->name . '.' . $image2->getClientOriginalExtension();
                 $request->file('Certificate_of_good_conduct')->storeAs('/doctors', $imageName, ['disk' => 'public']);

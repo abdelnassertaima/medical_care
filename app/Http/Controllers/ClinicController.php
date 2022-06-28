@@ -123,7 +123,6 @@ class ClinicController extends Controller
         //
         $deleted = $clinic->delete();
         return response()->json([
-            // 'message' => $deleted ? 'Deleted successfully' : 'Deleted failed'
             'title' => $deleted ? 'Deleted successfully' : "Delete failed",
             'icon' => $deleted ? 'success' : "error",
         ], $deleted ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST);

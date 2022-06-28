@@ -53,11 +53,11 @@ License: You must have a valid license purchased only from themeforest(the above
 				style="background-image: url({{asset('cms/assets/media/bg/bg-3.jpg')}});">
 				<div class="login-form text-center p-7 position-relative overflow-hidden">
 					<!--begin::Login Header-->
-					<div class="d-flex flex-center mb-15">
+					{{-- <div class="d-flex flex-center mb-15">
 						<a href="#">
 							<img src="{{asset('cms/assets/media/logos/piciti.jpg')}}" class="max-h-75px" alt="" />
 						</a>
-					</div>
+					</div> --}}
 					<!--end::Login Header-->
 					<!--begin::Login Sign in form-->
 					<div class="login-signin">

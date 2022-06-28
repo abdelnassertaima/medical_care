@@ -71,10 +71,10 @@
                         <div class="col-9">
                             <div class="dropdown bootstrap-select form-control dropup">
                                 <select class="form-control selectpicker" data-size="7" id="Bachelors_degree"  value="{{$doctor->Bachelors_degree}}"
-                                    title="-- --" tabindex="null" data-live-search="true">
-                                    <option value="bakaluryus">Bakaluryus</option>
-                                    <option value="Master's">Master's</option>
-                                    <option value="dukturah">Dukturah</option>
+                                     tabindex="null" data-live-search="true">
+                                    <option value="bakaluryus" @if($role->guard_name == 'bakaluryus') selected @endif>Bakaluryus</option>
+                                    <option value="master's" @if($role->guard_name == 'master s') selected @endif>Master's</option>
+                                    <option value="dukturah" @if($role->guard_name == 'dukturah') selected @endif>Dukturah</option>
                                 </select>
                             </div>
                             <span class="form-text text-muted">Please enter your Bachelors degree</span>
@@ -86,10 +86,10 @@
                         <div class="col-9">
                             <div class="dropdown bootstrap-select form-control dropup">
                                 <select class="form-control selectpicker" data-size="7" id="specialty"  value="{{$doctor->specialty}}"
-                                    title="-- --" tabindex="null" data-live-search="true">
-                                    <option value="bones">bones</option>
-                                    <option value="batina">batina</option>
-                                    <option value="surgery">surgery</option>
+                                     tabindex="null" data-live-search="true">
+                                    <option value="bones"  @if($role->guard_name == 'bones') selected @endif>bones</option>
+                                    <option value="batina" @if($role->guard_name == 'batina') selected @endif>batina</option>
+                                    <option value="surgery" @if($role->guard_name == 'surgery') selected @endif>surgery</option>
                                 </select>
                             </div>
                             <span class="form-text text-muted">Please enter your specialty</span>
@@ -132,7 +132,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performStore()" class="btn btn-primary mr-2">Submit</button>
+                            <button type="button" onclick="performStore({{$doctor->id}})" class="btn btn-primary mr-2">Submit</button>
                             <button type="reset" class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
@@ -151,22 +151,24 @@
 
 <script>
 
-function performStore() {
+function performStore(id) {
         let formData = new FormData();
+        formData.append('_method','PUT');
         formData.append('role_id',document.getElementById('role_id').value);
         formData.append('name',document.getElementById('name').value);
         formData.append('email',document.getElementById('email').value);
         formData.append('Bachelors_degree',document.getElementById('Bachelors_degree').value);
         formData.append('specialty',document.getElementById('specialty').value);
         formData.append('clinic_id',document.getElementById('clinic_id').value);
-        formData.append('practice_certificate', document.getElementById('practice_certificate').files[0])
-        formData.append('Certificate_of_good_conduct', document.getElementById('Certificate_of_good_conduct').files[0])
-        formData.append('password',document.getElementById('password').value);
-
-        axios.post('/cms/admin/doctors', formData).then(function (response) {
+        if(document.getElementById('practice_certificate').files[0] != undefined){
+            formData.append('practice_certificate', document.getElementById('practice_certificate').files[0])
+        }
+        if(document.getElementById('Certificate_of_good_conduct').files[0] != undefined){
+            formData.append('Certificate_of_good_conduct', document.getElementById('Certificate_of_good_conduct').files[0])
+        }
+        axios.post('/cms/admin/doctors'+id, formData).then(function (response) {
             // handle success
             console.log(response);
-            document.getElementById('create-form').reset();
             toastr.success(response.data.message);
         }).catch(function (error) {
             // handle error

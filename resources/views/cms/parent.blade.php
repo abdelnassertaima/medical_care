@@ -102,7 +102,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="brand flex-column-auto" id="kt_brand">
 					<!--begin::Logo-->
 					<a href="#" class="brand-logo">
-						<img alt="Logo" src="{{asset('cms/assets/media/logos/logo-light.png')}}" />
+						{{-- <img alt="Logo" src="{{asset('cms/assets/media/logos/logo-light.png')}}" /> --}}
+						<h1 class="text-center text-light">medical care</h1>
 					</a>
 					<!--end::Logo-->
 					<!--begin::Toggle-->
@@ -320,7 +321,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 												@can('Create-Patient')
 													<li class="menu-item" aria-haspopup="true">
-														<a href="{{route('doctors.create')}}" class="menu-link">
+														<a href="{{route('patients.create')}}" class="menu-link">
 															<i class="menu-bullet menu-bullet-dot">
 																<span></span>
 															</i>
@@ -331,7 +332,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 												@can('Read-Patients')
 													<li class="menu-item" aria-haspopup="true">
-														<a href="#" class="menu-link">
+														<a href="{{route('patients.index')}}" class="menu-link">
 															<i class="menu-bullet menu-bullet-dot">
 																<span></span>
 															</i>
@@ -575,7 +576,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											
 											@can('Create-Booking')
 											<li class="menu-item" aria-haspopup="true">
-												<a href="#" class="menu-link">
+												<a href="{{route('bookings.create')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
@@ -587,7 +588,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 											@can('Read-Bookings')
 												<li class="menu-item" aria-haspopup="true">
-													<a href="#" class="menu-link">
+													<a href="{{route('bookings.index')}}" class="menu-link">
 														<i class="menu-bullet menu-bullet-dot">
 															<span></span>
 														</i>
