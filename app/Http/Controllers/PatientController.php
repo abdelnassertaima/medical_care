@@ -59,7 +59,7 @@ class PatientController extends Controller
             $patient->email = $request->input('email');
             $patient->address = $request->input('address');
             $patient->identification_num = $request->input('identification_num');
-            $patient->password = Hash::make(12345);
+            $patient->password = Hash::make($request->input('identification_num'));
             $isCreated = $patient->save();
             if($isCreated) $patient->assignRole($role);
             return response()->json([

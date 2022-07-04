@@ -16,11 +16,38 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    private function getGuardName(): String
+    {
+        return auth('admin')->check() ? 'admin' : 'doctor';
+    }
+
     public function index()
     {
         //
         // dd(Auth()->id());
-        $data = Booking::where('doctor_id','=', Auth()->id())->get();
+        $patient = auth('patient')->check() ? 'patient' : 'doctor';
+        // dd($patient);
+        $user = $this->getGuardName();
+
+        $data = Booking::all();
+        if ($user =='admin') {
+            $data = Booking::all();
+        }
+        if ($user == 'doctor') {
+            
+            $data = Booking::where('doctor_id','=', Auth()->id())->get();
+        }
+        if ($patient == 'patient'){
+            $data = Booking::where('patient_id','=', Auth()->id())->get(); 
+            // dd($user);
+        }
+        // dd($user);
+
+
+
+        // dd($user);
         return response()->view('cms.bookings.index',['bookings'=>$data]);
     }
 
@@ -56,7 +83,8 @@ class BookingController extends Controller
         if (!$validator->fails()) {
             $booking = new Booking();
             $booking->doctor_id = $request->input('doctor_id');
-            $booking->patient_id = $request->input('patient_id');
+            // $request->input('patient_id');
+            $booking->patient_id = Auth()->id();
             $booking->booking_date = $request->input('booking_date');
             $booking->booking = $request->input('booking');
             $isSaved = $booking->save();

@@ -11,6 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 class Admin extends Authenticatable
 {
     use HasApiTokens,HasFactory,HasRoles;
+    
     protected $table = 'admins';
     protected $fillable = [
         'name',
