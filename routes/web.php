@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -28,7 +29,7 @@ Route::get('/', function () {
 
 
 
-Route::prefix('cms')->middleware('guest:admin,doctor,patient')->group(function(){
+Route::prefix('cms')->middleware('guest:admin,doctor,patient,employee')->group(function(){
     Route::get('{guard}/login',[AuthController::class,'ShowLogin'])->name('auth.login.view');
     Route::post('login',[AuthController::class, 'Login'])->name('auth.login');
 
@@ -36,19 +37,20 @@ Route::prefix('cms')->middleware('guest:admin,doctor,patient')->group(function()
 
 
 
-route::prefix('cms/admin')->middleware('auth:admin,doctor,patient')->group(function(){
+route::prefix('cms/admin')->middleware('auth:admin,doctor,patient,employee')->group(function(){
     route::resource('roles',RoleController::class);
     route::resource('permissions',PermissionController::class);
     route::put('roles/{role}/permissions',[RolePermissionController::class,'update'])->name('rindexole-permission.update');
 });
 
-route::prefix('cms/admin')->middleware('auth:admin,doctor,patient')->group(function(){
+route::prefix('cms/admin')->middleware('auth:admin,doctor,patient,employee')->group(function(){
     Route::view('/','cms.parent');
     route::resource('admins',AdminController::class);
     route::resource('clinics',ClinicController::class);
     route::resource('doctors',DoctorController::class);
     route::resource('patients',PatientController::class);
     route::resource('bookings',BookingController::class);
+    route::resource('employees',EmployeeController::class);
 
     /*************** edit and update password ***************/
     Route::get('edit-password', [AuthController::class, 'editPassword'])->name('auth.edit-password');

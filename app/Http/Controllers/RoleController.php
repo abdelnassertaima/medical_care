@@ -45,7 +45,7 @@ class RoleController extends Controller
     {
     //
         $validator = validator($request->all(),[
-            'guard_name'=>'required|string|in:admin,doctor,patient',
+            'guard_name'=>'required|string|in:admin,doctor,patient,employee',
             'name'=>'required|string|min:3|max:45',
             
         ]);
@@ -107,7 +107,7 @@ class RoleController extends Controller
     {
         //
         $validator = validator($request->all(),[
-            'guard_name'=>'required|string|in:admin,doctor,patient',
+            'guard_name'=>'required|string|in:admin,doctor,patient,employee',
             'name'=>'required|string|min:3|max:45',
             
         ]);

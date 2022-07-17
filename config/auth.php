@@ -52,6 +52,10 @@ return [
             'driver' => 'session',
             'provider' => 'patients',
         ],
+        'employee' => [
+            'driver' => 'session',
+            'provider' => 'employees',
+        ],
         'user-api' => [
             'driver' => 'passport',
             'provider' => 'users'
@@ -95,6 +99,10 @@ return [
         'patients' => [
             'driver' => 'eloquent',
             'model' => App\Models\Patient::class,
+        ],
+        'employees' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Employee::class,
         ],
 
         // 'users' => [

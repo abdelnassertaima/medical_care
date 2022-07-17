@@ -39,6 +39,8 @@
                                     </option>
                                     <option value="patient" @if($permission->guard_name == 'patient') selected @endif>Patient
                                     </option>
+                                    <option value="employee" @if($role->guard_name == 'employee') selected @endif>Employee
+                                    </option>
                                 </select>
                             </div>
                             <span class="form-text text-muted">Please select auth type</span>
