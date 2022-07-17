@@ -28,6 +28,7 @@ class BookingController extends Controller
         //
         // dd(Auth()->id());
         $patient = auth('patient')->check() ? 'patient' : 'doctor';
+        $employee = auth('employee')->check() ? 'employee' : 'doctor';
         // dd($patient);
         $user = $this->getGuardName();
 
@@ -39,6 +40,10 @@ class BookingController extends Controller
             
             $data = Booking::where('doctor_id','=', Auth()->id())->get();
         }
+        if ($employee =='employee') {
+            $data = Booking::all();
+        }
+        
         if ($patient == 'patient'){
             $data = Booking::where('patient_id','=', Auth()->id())->get(); 
             // dd($user);
