@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('address',100);
+            $table->string('complaint');
+            $table->string('chronic_diseaes');
+            $table->string('previous_operations');
             $table->string('identification_num');
             $table->string('password');
             $table->timestamps();

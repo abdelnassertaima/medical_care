@@ -88,8 +88,8 @@ class BookingController extends Controller
         if (!$validator->fails()) {
             $booking = new Booking();
             $booking->doctor_id = $request->input('doctor_id');
-            // $request->input('patient_id');
-            $booking->patient_id = Auth()->id();
+            $booking->patient_id = $request->input('patient_id');
+            $booking->treatment = '';
             $booking->booking_date = $request->input('booking_date');
             $booking->booking = $request->input('booking');
             $isSaved = $booking->save();
@@ -145,6 +145,7 @@ class BookingController extends Controller
             'doctor_id' => 'required|integer',
             'patient_id' => 'required|integer',
             'booking_date' => 'required|date',
+            'treatment' => 'required|string',
             'booking' => 'required|boolean',
             
         ]);
@@ -152,6 +153,7 @@ class BookingController extends Controller
             $booking->doctor_id = $request->input('doctor_id');
             $booking->patient_id = $request->input('patient_id');
             $booking->booking_date = $request->input('booking_date');
+            $booking->treatment = $request->input('treatment');
             $booking->booking = $request->input('booking');
             $isUpdateed = $booking->save();
             return response()->json([

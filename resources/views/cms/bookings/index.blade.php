@@ -37,7 +37,11 @@
                         <th class="pl-0" style="min-width: 100px ">id</th>
                         <th style="min-width: 120px ">Doctor Name</th>
                         <th style="min-width: 120px ">Patient Name</th>
+                        <th style="min-width: 120px ">Complaint</th>
+                        <th style="min-width: 120px ">Chronic diseases</th>
+                        <th style="min-width: 120px ">Previous operations</th>
                         <th style="min-width: 120px ">Booking date</th>
+                        <th style="min-width: 120px ">treatment</th>
                         <th style="min-width: 120px ">Booking</th>
                         <th class="pr-0 text-center" style="min-width: 160px">action</th>
                     </tr>
@@ -59,9 +63,31 @@
                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$booking->patient->name}}</a>
                         </td>
                         
+                        
+                        <td class="pl-0">
+                             <a href="#"
+                               class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$booking->patient->complaint}}</a>
+                        </td>
+                        
+                        
+                        <td class="pl-0">
+                             <a href="#"
+                               class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$booking->patient->chronic_diseaes}}</a>
+                        </td>
+                        
+                        
+                        <td class="pl-0">
+                             <a href="#"
+                               class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$booking->patient->previous_operations}}</a>
+                        </td>
+                        
                         <td class="pl-0">
                              <a href="#"
                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$booking->booking_date}}</a>
+                        </td>
+                        <td class="pl-0">
+                             <a href="#"
+                               class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$booking->treatment}}</a>
                         </td>
                         
                         <td>

@@ -49,6 +49,9 @@ class PatientController extends Controller
             'phone_num' => 'required|string|min:3|max:100|unique:patients,phone_num',
             'email' => 'required|string|unique:patients,email',
             'address' => 'required|string|min:3|max:100',
+            'complaint' => 'required|string|min:3',
+            'chronic_diseaes' => 'required|string|min:3',
+            'previous_operations' => 'required|string|min:3',
             'identification_num' => 'required|string|min:1|unique:patients,identification_num',
         ]);
         if (!$validator->fails()) {
@@ -58,6 +61,9 @@ class PatientController extends Controller
             $patient->phone_num = $request->input('phone_num');
             $patient->email = $request->input('email');
             $patient->address = $request->input('address');
+            $patient->complaint = $request->input('complaint');
+            $patient->chronic_diseaes = $request->input('chronic_diseaes');
+            $patient->previous_operations = $request->input('previous_operations');
             $patient->identification_num = $request->input('identification_num');
             $patient->password = Hash::make($request->input('identification_num'));
             $isCreated = $patient->save();
@@ -114,6 +120,9 @@ class PatientController extends Controller
             'phone_num'=>'required|string|min:3|max:45',
             'email'=>'required|string|email|unique:patients,email, '. $patient->id,
             'address'=>'required|string|min:3|max:100',
+            'complaint' => 'nullable|string|min:3',
+            'chronic_diseaes' => 'nullable|string|min:3',
+            'previous_operations' => 'nullable|string|min:3',
             'identification_num'=>'required|string|min:3|max:45',
         ]);
         if (!$validator->fails()) {
@@ -122,6 +131,9 @@ class PatientController extends Controller
             $patient->phone_num = $request->input('phone_num');
             $patient->email = $request->input('email');
             $patient->address = $request->input('address');
+            $patient->complaint = $request->input('complaint');
+            $patient->chronic_diseaes = $request->input('chronic_diseaes');
+            $patient->previous_operations = $request->input('previous_operations');
             $patient->identification_num = $request->input('identification_num');
             $patient->password = Hash::make(12345);
             $Updated = $patient->save();
@@ -145,5 +157,11 @@ class PatientController extends Controller
     public function destroy(Patient $patient)
     {
         //
+        $deleted = $patient->delete();
+        return response()->json([
+            // 'message' => $deleted ? 'Deleted successfully' : 'Deleted failed'
+            'title' => $deleted ? 'Deleted successfully' : "Delete failed",
+            'icon' => $deleted ? 'success' : "error",
+        ], $deleted ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST);
     }
 }

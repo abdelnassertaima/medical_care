@@ -37,6 +37,9 @@
                         <th style="min-width: 150px">Phone num</th>
                         <th style="min-width: 150px">Email</th>
                         <th style="min-width: 150px">Address</th>
+                        <th style="min-width: 150px">Complaint</th>
+                        <th style="min-width: 150px">Chronic diseases</th>
+                        <th style="min-width: 150px">Previous operations</th>
                         <th style="min-width: 180px">Identification num</th>
                         <th class="pr-0 text-right" style="min-width: 160px">action</th>
                     </tr>
@@ -64,6 +67,18 @@
                         <td>
                             <span
                                 class="text-dark-50 font-weight-bolder d-block font-size-lg">{{$patient->address}}</span>
+                        </td>
+                        <td>
+                            <span
+                                class="text-dark-50 font-weight-bolder d-block font-size-lg">{{$patient->complaint}}</span>
+                        </td>
+                        <td>
+                            <span
+                                class="text-dark-50 font-weight-bolder d-block font-size-lg">{{$patient->chronic_diseaes}}</span>
+                        </td>
+                        <td>
+                            <span
+                                class="text-dark-50 font-weight-bolder d-block font-size-lg">{{$patient->previous_operations}}</span>
                         </td>
                         <td>
                             <span

@@ -67,7 +67,11 @@
                 
                         <div class="form-group col-4">
                             <label for="booking_date ">Booking date</label>
-                            <input type="date" class="form-control" id="booking_date" value="{{$booking->booking_date}}" placeholder="Enter Membership start date">
+                            <input type="date" class="form-control" id="booking_date" value="{{$booking->booking_date}}" placeholder="Enter booking date">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="booking_date ">Treatment</label>
+                            <input type="string" class="form-control" id="treatment" value="{{$booking->treatment}}" placeholder="Enter treatment">
                         </div>
 
                         <div class="form-group col-4">
@@ -111,6 +115,7 @@ function Updat(id){
         doctor_id: document.getElementById('doctor_id').value,
         patient_id: document.getElementById('patient_id').value,
         booking_date: document.getElementById('booking_date').value,
+        treatment: document.getElementById('treatment').value,
         booking: document.getElementById('booking').checked,
     })
     .then(function (response) {

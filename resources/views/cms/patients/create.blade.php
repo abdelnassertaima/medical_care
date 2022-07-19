@@ -74,6 +74,27 @@
                         </div>
                     </div>
                     <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">Complaint:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="complaint" placeholder="Enter complaint" />
+                            <span class="form-text text-muted">Please enter your complaint</span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">Chronic Diseases:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="chronic_diseaes" placeholder="Enter chronic diseases" />
+                            <span class="form-text text-muted">Please enter your chronic diseases</span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">Previous Operations:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="previous_operations" placeholder="Enter previous operations" />
+                            <span class="form-text text-muted">Please enter your previous operations</span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">identification num:<span class="text-danger">*</span></label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="identification_num" placeholder="Enter identification num" />
@@ -123,6 +144,9 @@
             email: document.getElementById('email').value,
             address: document.getElementById('address').value,
             identification_num: document.getElementById('identification_num').value,
+            complaint: document.getElementById('complaint').value,
+            chronic_diseaes: document.getElementById('chronic_diseaes').value,
+            previous_operations: document.getElementById('previous_operations').value,
         })
         .then(function (response) {
             console.log(response);

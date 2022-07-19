@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('doctor_id')->constrained();
             $table->foreignId('patient_id')->constrained();
+            $table->string('treatment');
             $table->date('booking_date');
             $table->boolean('booking')->default(true);
             $table->timestamps();

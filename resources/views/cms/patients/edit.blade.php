@@ -70,17 +70,38 @@
                         </div>
                     </div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">Full Name:<span class="text-danger">*</span></label>
+                        <label class="col-3 col-form-label">Full address:<span class="text-danger">*</span></label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="address" value="{{$patient->address}}" placeholder="Enter full name" />
-                            <span class="form-text text-muted">Please enter your full name</span>
+                            <span class="form-text text-muted">Please enter your full address</span>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">Full Name:<span class="text-danger">*</span></label>
+                        <label class="col-3 col-form-label">Complaint:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="complaint" value="{{$patient->complaint}}"/>
+                            <span class="form-text text-muted">Please enter your complaint</span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">Chronic Diseases:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="chronic_diseaes" value="{{$patient->chronic_diseaes}}"/>
+                            <span class="form-text text-muted">Please enter your chronic diseases</span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">Previous Operations:<span class="text-danger">*</span></label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="previous_operations" value="{{$patient->previous_operations}}"/>
+                            <span class="form-text text-muted">Please enter your previous operations</span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">identification_num:<span class="text-danger">*</span></label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="identification_num" value="{{$patient->identification_num}}" placeholder="Enter full name" />
-                            <span class="form-text text-muted">Please enter your full name</span>
+                            <span class="form-text text-muted">Please enter your identification_num</span>
                         </div>
                     </div>
                     {{-- <div class="form-group row">
@@ -126,7 +147,10 @@
         phone_num: document.getElementById('phone_num').value,
         email: document.getElementById('email').value,
         address: document.getElementById('address').value,
-        identification_num: document.getElementById('identification_num').value,
+            complaint: document.getElementById('complaint').value,
+            chronic_diseaes: document.getElementById('chronic_diseaes').value,
+            previous_operations: document.getElementById('previous_operations').value,
+            identification_num: document.getElementById('identification_num').value,
     })
     .then(function (response) {
         console.log(response);
